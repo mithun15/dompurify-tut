@@ -1,0 +1,163 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.sanitizer-container {
+  display: flex;
+  gap: 0;
+  height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.panel-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a202c;
+  letter-spacing: 0.02em;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &.danger {
+    background: #fff0f0;
+    color: #c53030;
+    border: 1px solid #fc8181;
+  }
+
+  &.safe {
+    background: #f0fff4;
+    color: #276749;
+    border: 1px solid #68d391;
+  }
+}
+
+.html-input {
+  flex: 1;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 1.25rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.825rem;
+  line-height: 1.7;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  caret-color: #89b4fa;
+
+  &::placeholder {
+    color: #585b70;
+  }
+}
+
+.divider {
+  width: 1px;
+  background: #e2e8f0;
+  flex-shrink: 0;
+}
+
+.output-panel {
+  background: #ffffff;
+}
+
+.output-tabs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tab-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  & + .tab-section {
+    border-top: 1px solid #e2e8f0;
+  }
+}
+
+.tab-title {
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #718096;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rendered-output {
+  flex: 1;
+  padding: 1.25rem;
+  overflow: auto;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #2d3748;
+
+  &:empty::after {
+    content: 'Sanitized HTML will render here…';
+    color: #a0aec0;
+    font-style: italic;
+  }
+}
+
+.source-output {
+  flex: 1;
+  margin: 0;
+  padding: 1.25rem;
+  overflow: auto;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  background: #f8f9fa;
+  color: #276749;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+@media (max-width: 768px) {
+  .sanitizer-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .html-input {
+    min-height: 220px;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .tab-section {
+    min-height: 180px;
+  }
+}

@@ -1,12 +1,10 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { HtmlSanitizer } from './html-sanitizer/html-sanitizer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [HtmlSanitizer],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
-export class App {
-  protected readonly title = signal('dompurify-tut');
-}
+export class App {}

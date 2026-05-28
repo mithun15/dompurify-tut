@@ -1,0 +1,34 @@
+<div class="sanitizer-container">
+  <div class="panel input-panel">
+    <div class="panel-header">
+      <span class="panel-label">Input HTML</span>
+      <span class="badge danger">Raw / Unsanitized</span>
+    </div>
+    <textarea
+      class="html-input"
+      placeholder="Paste or type HTML here…&#10;&#10;Try: &lt;img src=x onerror=alert(1)&gt; or &lt;script&gt;alert('xss')&lt;/script&gt;"
+      [(ngModel)]="rawHtml"
+      spellcheck="false"
+    ></textarea>
+  </div>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <div class="panel output-panel">
+    <div class="panel-header">
+      <span class="panel-label">Sanitized Output</span>
+      <span class="badge safe">DOMPurify</span>
+    </div>
+
+    <div class="output-tabs">
+      <div class="tab-section">
+        <p class="tab-title">Rendered</p>
+        <div class="rendered-output" [innerHTML]="sanitizedHtml()"></div>
+      </div>
+      <div class="tab-section">
+        <p class="tab-title">Sanitized Source</p>
+        <pre class="source-output">{{ sanitizedSource() || '(empty)' }}</pre>
+      </div>
+    </div>
+  </div>
+</div>
